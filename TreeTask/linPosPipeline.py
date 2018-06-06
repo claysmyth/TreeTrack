@@ -12,8 +12,8 @@ import matlab.engine
 
 
 def getPositionFromTrodesFile(posFile):
-	#this function will call readTrodesExtractedDataFile.m and return the data struct as a numpy
-	#dictionary containing the two LED coordinates and head Angle (0 being x axis).
+	#this function will call readTrodesExtractedDataFile.m and return the data struct as a 
+	#pandas df containing the two LED coordinates and head Angle (0 being x axis).
 	#Also returns midpoints of LED at each timestep.
 	eng.rTEDFPyth(posFile, nargout = 0)
 	pos, posLabel, midPoint = eng.retrievePositionPy2('data.mat', nargout = 3)
@@ -101,6 +101,9 @@ if __name__ == "__main__":
 	
 	pld.plot_linear_distance(linear_distance_cm, linear_bin, position, (72000,73000))
 	np.save(args[2],linear_bin)
+
+	eng.quit()
+
 
 
 
