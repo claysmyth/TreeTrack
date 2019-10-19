@@ -82,7 +82,7 @@ def smooth_track_segs(track_segment_id):
 
 def bin_position(linear_distance, track_segs):
     linear_bin = np.zeros_like(linear_distance)
-    #max1 = np.amax(linear_distance[np.where(track_segs == 4)])
+    max1 = np.amax(linear_distance[np.where(track_segs == 4)])
     #print('max of segment 1 is ', max1)
 
     #back well
